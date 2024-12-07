@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net471</TargetFramework>
-    <Version>1.1.0</Version>
+    <TargetFramework>net472</TargetFramework>
+    <Version>1.2.0</Version>
     <Authors>Terkoiz</Authors>
   </PropertyGroup>
 
@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Aki.Reflection">
-      <HintPath>..\References\EFT_Managed\Aki.Reflection.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\References\EFT_Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -32,6 +28,9 @@
     <Reference Include="Sirenix.Serialization">
       <HintPath>..\References\EFT_Managed\Sirenix.Serialization.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="spt-reflection">
+      <HintPath>..\References\EFT_Managed\spt-reflection.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>..\References\EFT_Managed\Unity.TextMeshPro.dll</HintPath>
@@ -54,5 +53,9 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetPath)&quot; &quot;D:\CrackedGames\SPT3.10.X\MiyakoTarkov v1.3\BepInEx\plugins\$(TargetFileName)&quot;&#xD;&#xA;copy &quot;$(TargetPath)&quot; &quot;D:\CrackedGames\SPT3.10.X\SPT-3.10.1\BepInEx\plugins\$(TargetFileName)&quot;" />
+  </Target>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Reflection;
-using Aki.Reflection.Patching;
+using SPT.Reflection.Patching;
 using EFT;
 using EFT.Quests;
 using EFT.UI;
@@ -53,14 +53,14 @@ namespace Terkoiz.Skipper
 
             var skipButton = Object.Instantiate(____handoverButton, ____handoverButton.transform.parent.transform);
 
-            skipButton.SetRawText("SKIP", 22);
+            skipButton.SetRawText("跳过", 22);
             skipButton.gameObject.name = SkipperPlugin.SkipButtonName;
             skipButton.gameObject.GetComponent<UnityEngine.UI.LayoutElement>().minWidth = 100f;
             skipButton.gameObject.SetActive(SkipperPlugin.AlwaysDisplay.Value && !quest.IsConditionDone(condition));
             
             skipButton.OnClick.RemoveAllListeners();
             skipButton.OnClick.AddListener(() => ItemUiContext.Instance.ShowMessageWindow(
-                description: "Are you sure you want to autocomplete this quest objective?",
+                description: "你确定要直接完成这个任务目标吗?",
                 acceptAction: () =>
                 {
                     if (quest.IsConditionDone(condition))
@@ -81,7 +81,7 @@ namespace Terkoiz.Skipper
                     skipButton.gameObject.SetActive(false);
                 },
                 cancelAction: () => {},
-                caption: "Confirmation"));
+                caption: "确认"));
         }
     }
 }

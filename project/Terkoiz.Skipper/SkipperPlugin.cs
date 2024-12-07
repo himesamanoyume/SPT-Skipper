@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Terkoiz.Skipper
 {
-    [BepInPlugin("com.terkoiz.skipper", "Terkoiz.Skipper", "1.1.0")]
+    [BepInPlugin("com.terkoiz.skipper", "姫様の夢汉化 Terkoiz.Skipper", "1.2.0")]
     public class SkipperPlugin : BaseUnityPlugin
     {
         internal const string SkipButtonName = "SkipButton";
@@ -32,21 +32,21 @@ namespace Terkoiz.Skipper
         {
             ModEnabled = Config.Bind(
                 MainSectionName,
-                "1. Enabled",
+                "1. 启用",
                 true,
-                "Global mod toggle. Will need to re-open the quest window for the setting change to take effect.");
+                "全局模式切换. 是否需要重新打开任务窗口以使设置更改生效.");
 
             AlwaysDisplay = Config.Bind(
                 MainSectionName,
-                "2. Always display Skip button",
+                "2. 始终显示跳过按钮",
                 false,
-                "If enabled, the Skip button will always be visible.");
+                "如果启用, 跳过按钮将始终可见.");
 
             DisplayHotkey = Config.Bind(
                 MainSectionName,
-                "3. Display hotkey",
+                "3. 显示跳过按钮 快捷键",
                 new KeyboardShortcut(KeyCode.LeftControl),
-                "Holding down this key will make the Skip buttons appear.");
+                "按住此键将使跳过按钮出现.");
         }
 
         [UsedImplicitly]
